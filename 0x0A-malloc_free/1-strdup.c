@@ -2,11 +2,11 @@
 #include "holberton.h"
 
 /**
- * _strlen - function that returns the length of a string.
+ * strlen_1 - function that returns the length of a string.
  * @s: pointer to a char for the length.
  * Return: i.
  */
-int _strlen(char *s)
+int strlen_1(char *s)
 {
 	int i;
 
@@ -31,8 +31,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	while (str[len])
-		len++;
+	len = strlen_1(str);
 
 	char *a = malloc((len + 1) * sizeof(char));
 
