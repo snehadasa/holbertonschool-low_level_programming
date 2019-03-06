@@ -8,6 +8,7 @@
 int _strlen(char *s)
 {
 	int i;
+
 	if (s == NULL)
 	{
 		return (0);
@@ -26,7 +27,7 @@ int _strlen(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	unsigned int i, j, len;
-	char *a
+	char *a;
 
 	len = _strlen(s1) + _strlen(s2) + 1;
 
