@@ -8,6 +8,10 @@
 int _strlen(char *s)
 {
 	int i;
+	if (s == NULL)
+	{
+		return (0);
+	}
 
 	for (i = 0; s[i] != '\0'; i++)
 		;
@@ -22,20 +26,21 @@ int _strlen(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	unsigned int i, j, len;
+	char *a
 
 	len = _strlen(s1) + _strlen(s2) + 1;
 
-	char *a = malloc(len * sizeof(char));
+	a = malloc(len * sizeof(char));
 
 	if (!a)
 	{
 		return (NULL);
 	}
-	for (i = 0; s1[i]; i++)
+	for (i = 0; s1 != NULL && s1[i]; i++)
 	{
 		a[i] = s1[i];
 	}
-	for (j = 0; s2[j]; j++)
+	for (j = 0; s2 != NULL && s2[j]; j++)
 	{
 		a[i + j] = s2[j];
 	}
