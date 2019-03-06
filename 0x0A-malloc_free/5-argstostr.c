@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _strlen - function that returns the length of a string.
@@ -37,7 +38,7 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 	}
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < ac; i++)
 	{
 		len += _strlen(av[i]);
 	}
