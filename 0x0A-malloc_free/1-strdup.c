@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include "holberton.h"
+#include <stdlib.h>
 
 /**
  * strlen_1 - function that returns the length of a string.
@@ -47,4 +47,3 @@ char *_strdup(char *str)
 
 	return (a);
 }
-
