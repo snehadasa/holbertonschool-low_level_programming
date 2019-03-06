@@ -30,7 +30,7 @@ int _strlen(char *s)
 char *argstostr(int ac, char **av)
 {
 	char *p;
-	int i, j = 0, k= 0, len = 0;
+	int i, j = 0, k = 0, len = 0;
 
 	if (ac == 0 || av == NULL)
 	{
@@ -48,7 +48,7 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < ac; i ++)
+	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
 		{
