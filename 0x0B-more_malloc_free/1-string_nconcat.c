@@ -1,23 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-/**
- * _strlen - function that returns the length of a string.
- * @s: pointer to a char for the length.
- * Return: i.
- */
-int _strlen(char *s)
-{
-	int i;
 
-	if (s == NULL)
-	{
-		return (0);
-	}
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
-}
 /**
  * string_nconcat - concatenates two strings
  * @s1: first string.
@@ -27,24 +10,33 @@ int _strlen(char *s)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, len;
+	unsigned int i, j, k;
 	char *a;
 
-	len = _strlen(s1) + _strlen(s2) + 1;
 
-	a = malloc(len * sizeof(char));
+	for (i = 0; s1[i] && s1 != NULL; i++)
+		;
+	for (j = 0; s2[j] && s2 != NULL; j++)
+		;
+
+	if (n > j)
+	{
+		n = j;
+	}
+
+	a = malloc((i + j + 1) * sizeof(char));
 
 	if (!a)
 	{
 		return (NULL);
 	}
-	for (i = 0; s1 != NULL && s1[i]; i++)
+	for (k = 0; k < i; k++)
 	{
-		a[i] = s1[i];
+		a[k] = s1[k];
 	}
-	for (j = 0; s2 != NULL && s2[j] && j < n; j++)
+	for (k = 0; k < j; k++)
 	{
-		a[i + j] = s2[j];
+		a[k + j] = s2[k];
 	}
 	a[i + j] = 0;
 
