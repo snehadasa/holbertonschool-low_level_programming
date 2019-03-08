@@ -7,7 +7,6 @@
  * @size: the size in bytes of each element
  * Return: a pointed to the allocated memory
  */
-
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;
@@ -17,13 +16,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	a = malloc(nmemb * size);
+	a = malloc(sizeof(char) * (nmemb * size));
 
 	if (!a)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < nmemb * size; i++)
 	{
 		a[i] = 0;
 	}
