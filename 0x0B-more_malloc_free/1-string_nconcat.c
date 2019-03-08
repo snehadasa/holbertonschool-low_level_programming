@@ -1,13 +1,13 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * _strlen - function that returns the length of a string.
+ * strlen_1 - function that returns the length of a string.
  * @s: pointer to a char for the length.
  * Return: i.
  */
-int _strlen(char *s)
+unsigned int strlen_1(char *s)
 {
-	int i;
+	unsigned int i;
 
 	if (s == NULL)
 	{
@@ -27,10 +27,19 @@ int _strlen(char *s)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, len;
+	unsigned int i, j, len, str_len_2;
 	char *a;
 
-	len = _strlen(s1) + _strlen(s2) + 1;
+	str_len_2 = strlen_1(s2);
+
+	if (n >= str_len_2)
+	{
+		len = strlen_1(s1) + str_len_2 + 1;
+	}
+	else
+	{
+		len = strlen_1(s1) + n + 1;
+	}
 
 	a = malloc((len + n) * sizeof(char));
 
