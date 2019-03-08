@@ -7,7 +7,6 @@
  * @max: highest value
  * Return: a pointer to the array, or NULL on failure
  */
-
 int *array_range(int min, int max)
 {
 	int i, size;
@@ -17,7 +16,7 @@ int *array_range(int min, int max)
 	{
 		return (NULL);
 	}
-	size = max - min + 1;
+	size = (max - min + 1);
 
 	array = malloc(sizeof(int) * size);
 
