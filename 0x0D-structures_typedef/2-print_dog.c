@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "dog.h"
+#include <stdio.h>
 
 /**
  * print_dog - Prints elements of struct dog
