@@ -1,5 +1,5 @@
-#ifndef ASSIGN_0x0E
-#define ASSIGN_0x0E
+#ifndef FUN_POINTERS_0x0E
+#define FUN_POINTERS_0x0E
 
 #include <stddef.h>
 
