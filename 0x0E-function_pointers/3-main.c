@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "3-calc.h"
+
 /**
   * main - starting point.
   * @argc: number of arguments that are passed to the program.
@@ -12,9 +13,6 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2;
-
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
 
 	if (argc != 4)
 	{
@@ -28,6 +26,8 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 	if ((*argv[2] == '%' || *argv[2] == '/') && num2 == 0)
 	{
 		printf("Error\n");
