@@ -43,9 +43,9 @@ void print_all(const char * const format, ...)
 				i++; /*incrementing to the next character.*/
 				continue; /*going back to the while loop*/
 		}
-		sep = ", ";/*the sep is printing , and space( )for the remaining letters*/
+		sep = ", "; /*the sep is printing , and space( )for the remaining letters*/
 		i++;
 	}
-	va_end(list);
 	printf("\n");
+	va_end(list);
 }
