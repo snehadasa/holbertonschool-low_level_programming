@@ -11,40 +11,41 @@
 void print_all(const char * const format, ...)
 {
 	va_list list;
-	char *sep = "";
-	int i;
-	char *str;
+	char *sep = "", *str;
+	int i = 0;
 
-	i = 0;
 	va_start(list, format);
-	while (format[i])
+	if (format)
 	{
-		switch (format[i])
+		while (format[i])
 		{
-			case 'c':
-				printf("%s%c", sep, va_arg(list, int));
-				/*sep is printing ("")for the first letter*/
-				break;
-			case 'i':
-				printf("%s%d", sep, va_arg(list, int));
-				break;
-			case 'f':
-				printf("%s%f", sep, va_arg(list, double));
-				break;
-			case 's':
-				str = va_arg(list, char *);
-				if (!str)
-				{
-					str = "(nil)";
-				}
-					printf("%s%s", sep, str);
-				break;
-			default:
-				i++; /*incrementing to the next character.*/
-				continue; /*going back to the while loop*/
-		}
-		sep = ", "; /*the sep is printing , and space( )for the remaining letters*/
+			switch (format[i])
+			{
+				case 'c':
+					printf("%s%c", sep, va_arg(list, int));
+					/*sep is printing ("")for first letter*/
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(list, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(list, double));
+					break;
+				case 's':
+					str = va_arg(list, char *);
+					if (!str)
+					{
+						str = "(nil)";
+					}
+						printf("%s%s", sep, str);
+					break;
+				default:
+					i++; /*incrementing to next character.*/
+					continue; /*going back to while loop*/
+			}
+		sep = ", "; /*sep is printing,& space( )for remaining letters*/
 		i++;
+		}
 	}
 	printf("\n");
 	va_end(list);
