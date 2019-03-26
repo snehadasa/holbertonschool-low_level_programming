@@ -3,10 +3,10 @@
 #include <stdio.h>
 
 /**
- *delete_nodeint_at_index - removed a node at a specified index
- *@head: The pointer to the pointer of a linked list
- *@index: The index to remove the node from the linked list
- *Return: returns the data before being deleted
+ * delete_nodeint_at_index - remove a node at a specified index
+ * @head: The pointer to the pointer of a linked list
+ * @index: The index to remove the node from the linked list
+ * Return: returns the data before being deleted
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
@@ -27,7 +27,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (data);
 	}
 
-	temp2 = *head;
 
 	for (i = 0; i < index - 1; i++)
 	{
