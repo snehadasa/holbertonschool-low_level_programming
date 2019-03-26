@@ -28,17 +28,20 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 
 
-	for (i = 0; i < index - 1 && (temp2->next); i++)
+	for (i = 0; i < index - 1; i++)
 	{
 		if (temp1->next == NULL)
 			return (-1);
 		temp1 = temp1->next; /*temp1 points to (n-1) node*/
-
-		temp2 = temp1->next; /*nth node*/
-		temp1->next = temp2->next; /*(n+1)th node*/
-		data = temp2->n; /*setting the data for tenp2*/
-		free(temp2); /*delete temp2*/
 	}
+
+	temp2 = temp1->next; /*nth node*/
+	if (temp2->next)
+	{
+		temp1->next = temp2->next; /*(n+1)th node*/
+	}
+	data = temp2->n; /*setting the data for tenp2*/
+	free(temp2); /*delete temp2*/
 
 	return (data);
 }
