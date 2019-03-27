@@ -15,7 +15,7 @@ listint_t *reverse_listint(listint_t **head)
 
 	while (current != NULL)
 	{
-		next = current->next; /*storing the value of current in next so we dont loose it*/
+		next = current->next; /*storing current in next so we dont loose it*/
 		current->next = prev; /*reversing the link and pointing &current to prev*/
 		prev = current; /*moving the prev variable to current*/
 		current = next; /*moving the current to next variable*/
