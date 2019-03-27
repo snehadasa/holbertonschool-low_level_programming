@@ -9,19 +9,19 @@ listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *current, *prev, *next;
 
-	current = *head;
+	current = *head; /*setting the variable current to head*/
 
-	prev = NULL;
+	prev = NULL; /*prev variable to null*/
 
 	while (current != NULL)
 	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		next = current->next; /*storing the value of current in next so we dont loose it*/
+		current->next = prev; /*reversing the link and pointing &current to prev*/
+		prev = current; /*moving the prev variable to current*/
+		current = next; /*moving the current to next variable*/
 	}
 
-	*head = prev;
+	*head = prev; /*setting the head to prev*/
 
 	return (*head);
 }
