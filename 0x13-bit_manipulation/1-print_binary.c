@@ -15,7 +15,7 @@ void print_binary(unsigned long int n)
 	{
 		num = n >> bit;
 
-		if (num& 1) /*&1 is checking for last digit if its 1 or 0*/
+		if (num & 1) /*&1 is checking for last digit if its 1 or 0*/
 		{
 			_putchar('1');
 			count++;
