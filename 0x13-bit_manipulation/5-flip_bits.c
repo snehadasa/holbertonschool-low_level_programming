@@ -11,8 +11,8 @@ int count_set_bits(unsigned long int n)
 
 	while (n)
 	{
-		count += n & 1; /*bitwise AND to check if leftmost bit 
-				  is yes or no. If yes increment count*/
+		count += n & 1; /*bitwise AND to check if left*/
+			/*most is yes or no. If yes increment count*/
 		n >>= 1; /*left shift the num by 1 position*/
 	}
 	return (count);
@@ -29,8 +29,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int k;
 
-	k = n ^ m; /*xor of n m will have set bits at those
-		     places where places of those differs*/
+	k = n ^ m; /*xor of n m will have set bits at those*/
+		     /*places where places of those differs*/
 
 	return (count_set_bits(k));
 
