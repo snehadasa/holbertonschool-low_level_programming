@@ -12,7 +12,7 @@ int count_set_bits(unsigned int n)
 	while (n)
 	{
 		count += n & 1; /*bitwise AND to check if leftmost bit 
-				  is set or no.if yes increment count*/
+				  is yes or no. If yes increment count*/
 		n >>= 1; /*left shift the num by 1 position*/
 	}
 	return (count);
