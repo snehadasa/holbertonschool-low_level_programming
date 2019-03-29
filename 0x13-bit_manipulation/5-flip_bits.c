@@ -5,9 +5,9 @@
  * @n: number to be flipped.
  * Return: count.
  */
-int count_set_bits(unsigned int n)
+int count_set_bits(unsigned long int n)
 {
-	unsigned int count = 0;
+	unsigned long int count = 0;
 
 	while (n)
 	{
