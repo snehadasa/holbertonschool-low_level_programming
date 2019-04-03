@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	if (fw < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		close(fr);
 		exit(99);
 	}
 	while ((bytes_read = read(fr, buff, 1024)) > 0)
@@ -35,8 +36,14 @@ int main(int argc, char *argv[])
 		if (bytes_read != bytes_written)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			close(fr);
 			exit(99);
 		}
+	}
+	if (bytes_read < 0)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
 	close_fw = close(fw);
 	close_fr = close(fr);
