@@ -9,6 +9,8 @@
  */
 int close_files(int fr, int fw)
 {
+	int close_fw, close_fr;
+
 	close_fw = close(fw);
 	close_fr = close(fr);
 	if (close_fr < 0 || close_fw < 0)
@@ -30,7 +32,7 @@ int close_files(int fr, int fw)
  */
 int main(int argc, char *argv[])
 {
-	int fr, fw, bytes_read = 0, bytes_written = 0, close_fw, close_fr;
+	int fr, fw, bytes_read = 0, bytes_written = 0;
 	char buff[1024];
 
 	if (argc != 3)
