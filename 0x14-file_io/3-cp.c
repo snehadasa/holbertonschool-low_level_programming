@@ -2,6 +2,27 @@
 #include <stdio.h>
 
 /**
+ * close_files - closes fr and fw
+ * @fr: read file
+ * @fw: write file
+ * Return: 1 if success
+ */
+int close_files(int fr, int fw)
+{
+	close_fw = close(fw);
+	close_fr = close(fr);
+	if (close_fr < 0 || close_fw < 0)
+	{
+		if (close_fr < 0)
+			dprintf(2, "Error: Can't close fd %d\n", fr);
+		if (close_fw < 0)
+			dprintf(2, "Error: Can't close fd %d\n", fw);
+		return (0);
+	}
+	return (1);
+}
+
+/**
  * main - copies the content of a file to another file
  * @argc: number of arguments passed to the program
  * @argv: array of arguments
@@ -45,15 +66,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	close_fw = close(fw);
-	close_fr = close(fr);
-	if (close_fr < 0 || close_fw < 0)
-	{
-		if (close_fr < 0)
-			dprintf(2, "Error: Can't close fd %d\n", fr);
-		if (close_fw < 0)
-			dprintf(2, "Error: Can't close fd %d\n", fw);
+	if (!close_files(fr, fw))
 		exit(100);
-	}
 	return (0);
 }
