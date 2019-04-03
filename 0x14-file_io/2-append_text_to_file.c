@@ -8,16 +8,14 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, re = 0, wr;
+	int fd, wr, re = 0;
 
 	if (!filename)
 		return (-1);
 
 	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd < 0)
-	{
 		return (-1);
-	}
 
 	if (text_content)
 	{
