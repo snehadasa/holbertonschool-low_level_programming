@@ -12,7 +12,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *delete_node = *head;
 	unsigned int i;
 
-	if (*head == NULL)
+	if (!head || (*head == NULL))
 		return (-1);
 
 	if (index == 0)
