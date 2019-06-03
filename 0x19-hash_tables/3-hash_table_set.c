@@ -71,7 +71,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	new->value = strdup(value);
 	new->key = strdup(key);
-	if (new->value == NULL || new->key ==NULL)
+	if (new->value == NULL || new->key == NULL)
 		return (0);
 	new->next = head;
 	ht->array[i] = new;
