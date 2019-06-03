@@ -13,7 +13,9 @@ int find_key(hash_node_t *head, const char *key)
 	while (temp)
 	{
 		if (strcmp(temp->key, key) == 0)
+		{
 			return (1);
+		}
 		temp = temp->next;
 	}
 	return (0);
@@ -25,7 +27,7 @@ int find_key(hash_node_t *head, const char *key)
  * @key: key of the list.
  * @value: value associated with the key.
  */
-void update_value(hash_node_t *head, const char *key, const char *value)
+int update_value(hash_node_t *head, const char *key, const char *value)
 {
 	hash_node_t *temp;
 
@@ -34,9 +36,16 @@ void update_value(hash_node_t *head, const char *key, const char *value)
 	while (temp)
 	{
 		if (strcmp(temp->key, key) == 0)
+		{
+			free(temp->value);
 			temp->value = strdup(value);
+			if (!temp->value)
+				return (0);
+			return (1);
+		}
 		temp = temp->next;
 	}
+	return (1);
 }
 
 /**
@@ -52,6 +61,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int i;
 	hash_node_t *new;
 	hash_node_t *head;
+
+	if (!key || !value)
+		return (0);
 
 	if (ht->size == 0)
 		return (0);
