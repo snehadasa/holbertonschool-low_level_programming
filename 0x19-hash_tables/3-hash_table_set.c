@@ -26,6 +26,8 @@ int find_key(hash_node_t *head, const char *key)
  * @head: head of the list.
  * @key: key of the list.
  * @value: value associated with the key.
+ *
+ * Return: 1 if success, 0 if failed.
  */
 int update_value(hash_node_t *head, const char *key, const char *value)
 {
