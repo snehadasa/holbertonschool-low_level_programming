@@ -12,7 +12,6 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (!ht)
 	{
-		free(ht);
 		return;
 	}
 
@@ -22,10 +21,12 @@ void hash_table_delete(hash_table_t *ht)
 		while (temp)
 		{
 			temp2 = temp->next;
+			free(temp->key);
+			free(temp->value);
 			free(temp);
 			temp = temp2;
 		}
-		temp2 = temp;
-		free(temp);
 	}
+	free(ht->array);
+	free(ht);
 }
