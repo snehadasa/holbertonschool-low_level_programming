@@ -2,7 +2,7 @@
 
 /**
  * hash_table_get - retrieves value associated with a key.
- * @ht: head of the list.
+ * @ht: hash table.
  * @key: key.
  * Return: value associated with element or NULL if key couldn't be found.
  */
