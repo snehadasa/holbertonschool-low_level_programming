@@ -1,7 +1,26 @@
 #include "sort.h"
 
 /**
+ * swap - function for swapping using temporary variable.
+ * @a: node a
+ * @b: node b;
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * partition_lomuto_sort - quick sort
+ * @array: Array
+ * @low: low index
+ * @high: high index
+ * @size: Size of the array
  */
 void partition_lomuto_sort(int *array, int low, int high, int size)
 {
@@ -23,7 +42,7 @@ void partition_lomuto_sort(int *array, int low, int high, int size)
 		{
 			current_high--;
 		}
-		if(current_low < current_high)
+		if (current_low < current_high)
 		{
 			swap(&array[current_low], &array[current_high]);
 			print_array(array, size);
@@ -40,8 +59,14 @@ void partition_lomuto_sort(int *array, int low, int high, int size)
 }
 
 /**
+ * quick_sort - Quick sorting algorithm
+ * @array: Array
+ * @size: Size of the @array
+ * Return: Nothing
  */
 void quick_sort(int *array, size_t size)
 {
+	if (!array || size < 2)
+		return;
 	partition_lomuto_sort(array, 0, size - 1, size);
 }

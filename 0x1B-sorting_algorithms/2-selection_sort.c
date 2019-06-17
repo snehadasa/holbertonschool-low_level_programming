@@ -1,6 +1,25 @@
 #include "sort.h"
 
 /**
+ * swap - function for swapping using temporary variable.
+ * @a: node a
+ * @b: node b;
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
+ * selection_sort - Selection sort
+ * @array: Array to be sorted
+ * @size: Size of the array
+ * Return: Nothing
  */
 void selection_sort(int *array, size_t size)
 {
@@ -11,7 +30,7 @@ void selection_sort(int *array, size_t size)
 		min = i;
 		for (j = i + 1; j < size; j++)
 		{
-			if (array[j] < array[idx])
+			if (array[j] < array[min])
 				min = j;
 		}
 		swap(&array[min], &array[i]);

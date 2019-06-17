@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+ * swap - function for swapping using temporary variable.
+ * @a: node a
+ * @b: node b;
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * bubble_sort - sorting the array using bubble sort.
  * @array: array to be sorted.
  * @size: size of the array.
