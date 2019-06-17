@@ -31,6 +31,9 @@ void partition_lomuto_sort(int *array, int low, int high, int size)
 	if (low >= high)
 		return;
 
+	if (!array)
+		return;
+
 	pivot = array[high];
 	while (current_low < current_high)
 	{
