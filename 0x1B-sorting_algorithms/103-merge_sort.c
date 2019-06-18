@@ -6,6 +6,7 @@
  * @a2: sub array 2
  * @size1: size of sub array 1.
  * @size2: size of sub array 2.
+ * @a3: main array to which a1 and a2 to be merged
  * Return: void
  */
 void merge(int *a1, int *a2, int size1, int size2, int *a3)
