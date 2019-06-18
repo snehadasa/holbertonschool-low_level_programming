@@ -25,7 +25,8 @@ void merge(int *a1, int *a2, int size1, int size2)
 	{
 		if (i >= size1)
 		{
-			a3[k] = a2[j++];  /* a2[j] */
+			a3[k] = a2[j];
+			j++;	/* a2[j] */
 		} /* j++ */
 		else if (j >= size2)
 		{
