@@ -8,13 +8,11 @@
  * @size2: size of sub array 2.
  * Return: void
  */
-void merge(int *a1, int *a2, int size1, int size2)
+void merge(int *a1, int *a2, int size1, int size2, int *a3)
 {
 	int i = 0, j = 0, k = 0, size;
-	int *a3;
 
 	size = size1 + size2;
-	a3 = malloc(sizeof(int) * (size));
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -46,7 +44,25 @@ void merge(int *a1, int *a2, int size1, int size2)
 		a1[i] = a3[i];
 	printf("[Done]: ");
 	print_array(a1, size);
-	free(a3);
+}
+
+/**
+ * split_merge - merge sort
+ * @array: Array to be sorted
+ * @size: Size of the array
+ * @temp: temp array to malloc
+ * Return: Nothing.
+ */
+void split_merge(int *array, size_t size, int *temp)
+{
+	int m;
+
+	if (!array || size < 2)
+		return;
+	m = size / 2;
+	split_merge(array, m, temp);
+	split_merge(array + m,  size - m, temp);
+	merge(array, array + m, m, size - m, temp);
 }
 
 /**
@@ -57,12 +73,13 @@ void merge(int *a1, int *a2, int size1, int size2)
  */
 void merge_sort(int *array, size_t size)
 {
-	int m;
+	int *temp = NULL;
 
 	if (!array || size < 2)
 		return;
-	m = size / 2;
-	merge_sort(array, m);
-	merge_sort(array + m,  size - m);
-	merge(array, array + m, m, size - m);
+	temp = malloc(sizeof(int) * size);
+	if (!temp)
+		return;
+	split_merge(array, size, temp);
+	free(temp);
 }
