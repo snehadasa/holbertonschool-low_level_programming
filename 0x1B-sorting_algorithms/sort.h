@@ -84,8 +84,6 @@ void merge_sort(int *array, size_t size);
 
 void heap_sort(int *array, size_t size);
 
-void split_array(int *array, int size);
-
 void radix_sort(int *array, size_t size);
 
 void bitonic_sort(int *array, size_t size);
