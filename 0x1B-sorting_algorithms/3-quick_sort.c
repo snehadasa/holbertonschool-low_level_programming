@@ -1,64 +1,71 @@
 #include "sort.h"
 
 /**
- * swap - function for swapping using temporary variable.
- * @a: node a
- * @b: node b;
- * Return: void
+ * swap - Swaps two numbers
+ * @n1: First number
+ * @n2: Second number
+ * Return: Nothing
  */
-void swap(int *a, int *b)
+void swap(int *n1, int *n2)
 {
 	int temp;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	temp = *n1;
+	*n1 = *n2;
+	*n2 = temp;
 }
 
 /**
- * partition_lomuto_sort - quick sort
- * @array: Array
- * @low: low index
- * @high: high index
- * @size: Size of the array
+ * partition - Swaps two numbers
+ * @arr: Array
+ * @low: First number
+ * @high: Second number
+ * @size: Size of the @array
+ * Return: Nothing
  */
-void partition_lomuto_sort(int *array, int low, int high, int size)
+int partition(int *arr, int low, int high, size_t size)
 {
-	int current_low = low;
-	int current_high = high;
-	int pivot;
+	int pivot = arr[high];
+	int i = (low - 1), j;
 
-	if (low >= high)
-		return;
-
-	if (!array)
-		return;
-
-	pivot = array[high];
-	while (current_low < current_high)
+	for (j = low; j <= high - 1; j++)
 	{
-		while (current_low < current_high && array[current_low] < pivot)
+		if (arr[j] <= pivot)
 		{
-			current_low++;
-		}
-		while (current_low < current_high && array[current_high] >= pivot)
-		{
-			current_high--;
-		}
-		if (current_low < current_high)
-		{
-			swap(&array[current_low], &array[current_high]);
-			print_array(array, size);
+			i++;
+			if (i != j)
+			{
+				swap(&arr[i], &arr[j]);
+				print_array(arr, size);
+			}
 		}
 	}
-	if (current_high < high)
+	if (arr[high] < arr[i + 1])
 	{
-		swap(&array[current_high], &array[high]);
-		print_array(array, size);
+		swap(&arr[i + 1], &arr[high]);
+		print_array(arr, size);
 	}
+	return (i + 1);
+}
 
-	partition_lomuto_sort(array, low, current_high - 1, size);
-	partition_lomuto_sort(array, current_high + 1, high, size);
+/**
+ * quickSort - Swaps two numbers
+ * @arr: Array
+ * @low: First number
+ * @high: Second number
+ * @size: Size of the @array
+ * Return: Nothing
+ */
+void quickSort(int *arr, int low, int high, size_t size)
+{
+	int pi;
+
+	if (low < high)
+	{
+		pi = partition(arr, low, high, size);
+		quickSort(arr, low, pi - 1, size);
+		quickSort(arr, pi + 1, high, size);
+	}
 }
 
 /**
@@ -71,5 +78,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
-	partition_lomuto_sort(array, 0, size - 1, size);
+	quickSort(array, 0, size - 1, size);
 }
