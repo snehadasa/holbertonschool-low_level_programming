@@ -1,98 +1,67 @@
 #include "sort.h"
 
 /**
- * swap - function for swapping using temporary variable.
- * @a: node a
- * @b: node b;
+ * merge - merges the sub arrays into main array.
+ * @a1: sub array 1
+ * @a2: sub array 2
+ * @size1: size of sub array 1.
+ * @size2: size of sub array 2.
  * Return: void
  */
-void swap(int *a, int *b)
+void merge(int *a1, int *a2, int size1, int size2)
 {
-	int temp;
+	int i = 0, j = 0, k = 0, size;
+	int *a3;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	size = size1 + size2;
+	a3 = malloc(sizeof(int) * (size));
+
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(a1, size1);
+	printf("[right]: ");
+	print_array(a2, size2);
+	for (i = 0; k < size; k++)
+	{
+		if (i >= size1)
+		{
+			a3[k] = a2[j++];  /* a2[j] */
+		} /* j++ */
+		else if (j >= size2)
+		{
+			a3[k] = a1[i++];
+		}
+		else if (a1[i] < a2[j])
+		{
+			a3[k] = a1[i++];
+		}
+		else
+		{
+			a3[k] = a2[j++];
+		}
+	}
+
+	for (i = 0; i < size; i++)
+		a1[i] = a3[i];
+	printf("[Done]: ");
+	print_array(a1, size);
+	free(a3);
 }
 
 /**
- * merge_sort - divides the whole array into sub arrays and sorts each bit.
- * @array: array to be sorted.
- * @size: size of the given array.
- * Return: void
+ * merge_sort - merge sort
+ * @array: Array to be sorted
+ * @size: Size of the array
+ * Return: Nothing.
  */
-void divide_and_merge(int *array, int l, int m, int r)
-{
-	int i = 0, j = 0, k = 0, size1, size2;
-	int *l_array, *r_array;
-	if (!array)
-		return;
-
-	size1 = m - l + 1;
-	size2 = r - m;
-
-	l_array = malloc(size1 * sizeof(int));
-	for (i = 0; i < size1 && *l_array; i++)
-		l_array[i] = array[i + 1];
-
-	r_array = malloc(size2 * sizeof(int));
-	for (j = 0; j < size1 && *r_array; j++)
-		r_array[j] = array[j + 1];
-
-	i = 0;
-	j = 0;
-	k = l;
-
-	while(i < size1 && j < size2)
-	{
-		if (l_array[i] <= r_array[j])
-		{
-			array[k] = l_array[i];
-			i++;
-		}
-
-		else
-		{
-			array[k] = r_array[j];
-			j++;
-		}
-		k++;
-	}
-
-	while (i < size1)
-	{
-		array[k] = l_array[i];
-		i++;
-		k++;
-	}
-
-	while (j < size2)
-	{
-		array[k] = r_array[j];
-		j++;
-		k++;
-	}
-}
-
-void merge(int *array, int l, int r)
+void merge_sort(int *array, size_t size)
 {
 	int m;
 
-	if (l < r)
-	{
-		m = l + (r - 1) / 2;
-
-		merge(array, l, m);
-		merge(array, m + 1, r);
-
-		divide_and_merge(array, l, m, r);
-	}
-}
-
-void merge_sort(int *array, size_t size)
-{
 	if (!array || size < 2)
 		return;
-
-	merge_sort(array, size);
+	m = size / 2;
+	merge_sort(array, m);
+	merge_sort(array + m,  size - m);
+	merge(array, array + m, m, size - m);
 }
