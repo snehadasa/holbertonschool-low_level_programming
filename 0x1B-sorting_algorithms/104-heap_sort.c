@@ -18,8 +18,8 @@ void swap(int *n1, int *n2)
 /**
  * sift_down - Sift down, rearrange heap swapping the child and parent.
  * @array: Array
- * @first: Start index
- * @last: End index
+ * @start: Start index
+ * @end: End index
  * @size: Size of the @array
  * Return: Nothing
  */
