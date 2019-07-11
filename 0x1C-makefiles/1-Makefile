@@ -1,0 +1,5 @@
+# creating a makefile with different variables
+CC = gcc
+SRC = main.c holberton.c
+all : main.c holberton.c m.h
+	$(CC) $(SRC) -o holberton
