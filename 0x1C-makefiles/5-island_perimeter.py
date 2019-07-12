@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """to calculate the perimeter of an island that is described in the grid"""
 
+
 def island_perimeter(grid):
     perimeter = 0
     for row in range(len(grid)):
