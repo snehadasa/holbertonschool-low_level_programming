@@ -2,8 +2,8 @@
 
 /**
  * binary_tree_node - creates new binary tree.
- * parent: parent of the nodes of a binary tree.
- * value: value associated with the node.
+ * @parent: parent of the nodes of a binary tree.
+ * @value: value associated with the node.
  * Return: newly created binary tree.
  */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)

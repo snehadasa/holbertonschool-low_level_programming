@@ -2,8 +2,8 @@
 
 /**
  * binary_tree_insert_right - pointer to the newly right-inserted node.
- * parent: parent of the nodes of a binary tree.
- * value: value associated with the node.
+ * @parent: parent of the nodes of a binary tree.
+ * @value: value associated with the node.
  * Return: newly created binary tree.
  */
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
