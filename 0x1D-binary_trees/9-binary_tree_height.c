@@ -20,16 +20,3 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	else
 		return (hr);
 }
-
-/**
- * binary_tree_height - to check height of a binary tree.
- * @tree: binary tree
- * Return: height of the tree
- 
-size_t binary_tree_height(const binary_tree_t *tree)
-{
-	if (!tree)
-		return (0);
-
-	return (binary_tree_height_rec(tree) - 1);
-}*/

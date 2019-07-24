@@ -1,8 +1,10 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_bst - to check if a binary tree is a binary search tree.
+ * is_bst_util - to check if a binary tree is a binary search tree.
  * @tree: binary tree
+ * @minvalue: minimum value of the tree
+ * @maxvalue: maximum value
  * Return: 1 if yes
  */
 int is_bst_util(const binary_tree_t *tree, int minvalue, int maxvalue)
