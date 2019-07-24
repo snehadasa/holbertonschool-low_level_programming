@@ -7,9 +7,10 @@
  * @level: level of the tree
  * Return: void
  */
-int print_levelorder(binary_tree_t *tree, int level, void (*func)(int))
+int print_levelorder(const binary_tree_t *tree, int level, void (*func)(int))
 {
 	int l, r;
+
 	if (!tree)
 		return (0);
 	if (level == 1)
@@ -35,7 +36,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 
 	if (!tree || !func)
 		return;
-	while (print_levelorder((binary_tree_t *)tree, level, func))
+	while (print_levelorder(tree, level, func))
 	{
 		level++;
 	}
