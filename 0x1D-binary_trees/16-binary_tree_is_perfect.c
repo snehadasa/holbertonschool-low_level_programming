@@ -20,8 +20,10 @@ size_t binary_tree_depth(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_height_rec - helper func to check if binary tree is perfect
+ * binary_tree_is_perfect_rec - helper func to check if binary tree is perfect
  * @tree: binary tree
+ * @d: depth if tree
+ * @level: levels of binary tree
  * Return: 1 if yes
  */
 int binary_tree_is_perfect_rec(const binary_tree_t *tree, int d, int level)
