@@ -31,9 +31,6 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	int balance_factor = 0;
 
-	if (!tree)
-		return (0);
-
 	balance_factor = binary_tree_height(tree->left) -
 		binary_tree_height(tree->right);
 	return (balance_factor);
@@ -67,9 +64,6 @@ int binary_tree_is_full(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	if (!tree)
-		return (0);
-
 	return (binary_tree_is_full(tree) == 1 &&
 			binary_tree_balance(tree) == 0);
 }
