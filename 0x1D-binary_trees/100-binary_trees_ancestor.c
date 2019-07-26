@@ -7,16 +7,16 @@
 */
 size_t binary_tree_depth(const binary_tree_t *tree)
 {
-    size_t d = 0;
+	size_t d = 0;
 
-    if (!tree)
-        return (0);
-    while (tree)
-    {
-        d++;
-        tree = tree->parent;
-    }
-    return (d);
+	if (!tree)
+		return (0);
+	while (tree)
+	{
+		d++;
+		tree = tree->parent;
+	}
+	return (d);
 }
 
 /**
@@ -25,7 +25,7 @@ size_t binary_tree_depth(const binary_tree_t *tree)
  * @second: second node ancestor
  * Return: height of the tree
  */
- binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		 const binary_tree_t *second)
 {
 	int dl, dr;
