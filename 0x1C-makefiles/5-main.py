@@ -1,4 +1,3 @@
-guillaume@ubuntu:~/0x1C$ cat 5-main.py
 #!/usr/bin/python3
 """
 5-main
